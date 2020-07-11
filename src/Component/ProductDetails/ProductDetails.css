@@ -1,0 +1,167 @@
+.content-productD {
+    background: #fbedd7;
+    overflow: hidden;
+}
+
+.new-title-productD {
+    margin-left: 11%;
+    margin-top: 42px;
+    margin-bottom: 20px;
+}
+
+.menu-img-productD {
+    margin-left: 20px;
+    margin-right: 20px;
+    border: solid 1px rgb(243, 189, 122);
+    padding: 165px 0px 165px 0px;
+    width: 20.333333% !important;
+}
+
+.rowpadding-productD {
+    width: 25.333333% !important;
+}
+
+.col-md-4-productD a {
+    cursor: pointer;
+}
+
+.row-productD {
+    text-align: center;
+}
+
+.tend-productD a {
+    font-size: 15px;
+    text-decoration: none;
+    color: black;
+}
+
+.tend-productD h3 {
+    width: 120%;
+}
+
+.main-content-productD {
+    margin-left: 143px;
+}
+
+.content-title-productD {
+    margin-left: 170px;
+    margin-top: 50px;
+}
+
+.content-cate-productD {
+    display: inline-block;
+}
+
+.ctsp-giohang-productD {
+  border: solid 1px rgb(243, 189, 122);
+  width: 30%;
+  margin: 15px 235px;
+  display: inline-block;
+  float: right;
+  padding-top: 14px;
+ }
+ .ctsp-dathang-productD{
+   border-bottom:0.5px solid rgb(243, 189, 122); ;
+ }
+ .ctsp-dathang-productD button {
+  margin: 14px 23px;
+  width: 88%;
+  padding: 10px 0;
+  background-color: #B22830;
+  color: white;
+  border: none;
+ }
+ .ctsp-spdd-productD, .ctsp-cttien-productD ,.ctsp-tongtien-productD {
+  padding: 0 6%; 
+ }
+ .ctsp-spdd-productD div {
+   display: inline-block;
+ }
+ .ctsp-sl-productD button{
+  background-color: #B22830;
+  color: white;
+  border: none;
+ }
+ .ctsp-tsp-productD{
+  display: inline-block;
+  width: 71%;
+  text-align: center;
+ }
+ .ctsp-tsp-productD h6 {
+  font-size: 113%;
+  margin: 17px 0;
+ }
+ .ctsp-cttien-productD {
+    padding: 2% 6%;
+    display: inline-block;
+    width: 100%;
+
+ }
+ .ctsp-cttien-productD p {
+   display: inline-block;
+   margin: 2% 0;
+ }
+.ctsp-congr-productD {
+  float: right;
+}
+.ctsp-uudai-productD {
+    margin: 16px 0;
+    width: 118%;
+}
+.input-proD {
+  padding: 8px 9px;
+  width: 67%;
+  border: 2px solid #B22830;
+}
+.ctsp-uudai-productD button {
+  padding: 10px 15px;
+    background-color: #B22830;
+    color: white;
+    border: none;
+}
+.ctsp-cttien-productD strong {
+  font-size: 150%;
+}
+.ctsp-giohang-productD button:hover {
+  opacity: 0.5;
+}   
+
+@media (max-width: 800px) {
+  .content-title-productD {
+    margin-left: 0!important;
+  }
+  .content-productD p {
+    width: 100%!important;
+    margin-left: 0!important;
+  }
+  .tend-productD {
+    width: 165%;
+  }
+  .main-content-productD {
+    margin-left: 0;
+  }
+  .ctsp-giohang-productD {
+    margin: -18px 0 0 0;
+    width: 50%;
+    padding-bottom: 10%!important;
+    border: none;
+  }
+  .menu-img-productD {
+    margin-right: 0;
+    margin-left: 4%;
+  }
+  .ctsp-dathang-productD {
+    border: none;
+  }
+  .ctsp-cttien-productD {
+    visibility: hidden;
+    height: 0;
+    padding: 0;
+  }
+  .content-cate-productD {
+    margin-bottom: -6%;
+  }
+  .tend-productD {
+    visibility: hidden;
+  }
+}

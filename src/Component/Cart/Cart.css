@@ -1,0 +1,217 @@
+.row-cart {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    margin: 0 -16px 20px;
+    
+  }
+  
+  .col-25 {
+    -ms-flex: 25%; /* IE10 */
+    width: 17%;
+    padding: 0;
+    position: fixed;
+    /* text-align: right; */
+    right: 12%;
+  }
+  
+  .col-50 {
+    -ms-flex: 50%; /* IE10 */
+    flex: 50%;
+  }
+  
+  .col-75 {
+    -ms-flex: 75%; /* IE10 */
+    width: 72%;
+    padding: 0;
+  }
+  
+  .col-25,
+  .col-50,
+  .col-75 {
+    padding: 0 16px;
+  }
+  
+  .col-25 .container {
+    margin-top: 26px;
+
+  }
+
+  .col-75 .container {
+    width: 95%;
+    margin-left: 45px;
+    margin-top: 26px;
+  }
+
+  .col-25 .container {
+    width: 166%;
+  }
+
+  .total {
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    width: 166%;
+    box-shadow: 0px 0px 7px 1px #b22830;
+    margin-top: 4px;
+  }
+
+  .container {
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    box-shadow: 0px 0px 7px 1px #b22830;
+  }
+
+  .order-details span {
+    margin-top: 60px;
+    font-size: 20px;
+  }
+  
+  .col-50 input[type=text] {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }                         
+
+  label {
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  .icon-container-cart {
+    margin-bottom: 20px;
+    padding: 7px 0;
+    font-size: 24px;
+  }
+
+  .icon-container-cart i {
+    margin-right: 5px;
+  }
+  
+  .btn {
+    border-color: rgb(177, 42, 45);
+    color: rgb(177, 42, 45);
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    width: 100%;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 17px;
+  }
+  
+  .btn:hover {
+    color: white;
+    background-color: rgb(177, 42, 45);
+    animation-delay: 0.5s;
+    transition: all 0.3s linear;
+  }
+  
+  a {
+    color: #2196F3;
+  }
+  
+  hr {
+    border: 1px solid lightgrey;
+  }
+  
+  span.price {
+    float: right;
+    color: grey;
+  }
+
+  .ctsp-giohang-cart {
+    width: 114%;
+    margin: 15px -24px;
+    display: inline-block;
+    float: right;
+    padding-top: 14px;
+   }
+   .ctsp-dathang-cart{
+     border-bottom:0.5px solid rgb(243, 189, 122); ;
+   }
+   .ctsp-dathang-cart button {
+    margin: 14px 23px;
+    width: 88%;
+    padding: 10px 0;
+    background-color: #B22830;
+    color: white;
+    border: none;
+   }
+   .ctsp-spdd-cart, .ctsp-cttien-cart ,.ctsp-tongtien-cart {
+    padding: 0 6%; 
+   }
+   .ctsp-spdd-cart div {
+     display: inline-block;
+   }
+   .ctsp-sl-cart button{
+    background-color: #B22830;
+    color: white;
+    border: none;
+   }
+   .ctsp-tsp-cart{
+    display: inline-block;
+    width: 71%;
+    text-align: center;
+   }
+   .ctsp-tsp-cart h6 {
+    font-size: 113%;
+    margin: 17px 0;
+   }
+   .ctsp-cttien-cart {
+      padding: 2% 6%;
+      display: inline-block;
+      width: 100%;
+  
+   }
+   .ctsp-cttien-cart p {
+     display: inline-block;
+     margin: 2% 0;
+   }
+  .ctsp-congr-cart {
+    float: right;
+  }
+  .ctsp-uudai-cart {
+      margin: 16px 0;
+      width: 114%;
+  }
+  .input-cart {
+    padding: 8px 9px;
+    width: 67%;
+    border: 2px solid #B22830;
+  }
+  .ctsp-uudai-cart button {
+    padding: 10px 15px;
+      background-color: #B22830;
+      color: white;
+      border: none;
+  }
+  .ctsp-cttien-cart strong {
+    font-size: 150%;
+  }
+  .ctsp-giohang-cart button:hover {
+    opacity: 0.5;
+  }   
+  
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+  @media (max-width: 800px) {
+    .row {
+      flex-direction: column-reverse;
+    }
+    .col-25 {
+      margin-bottom: 20px;
+      position: relative;
+      display: block;
+      margin-left: 17.8%;
+      width: 33%;
+    }
+    .col-75 {
+      width: 100%;
+    }
+  }

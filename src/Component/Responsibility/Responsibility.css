@@ -1,0 +1,60 @@
+.row-res {
+    width: 80%;
+    overflow: hidden; 
+    margin-left: 11% ;
+}
+
+.new-title-res {
+    margin-left: 11%;
+    margin-top: 42px;
+    margin-bottom: 20px;
+}
+
+.new-content-res {
+    margin-bottom: 90px;
+    overflow: hidden;
+}
+
+.col-md-4 {
+    margin-bottom: 15px;
+}
+
+.tend-res a {
+    color: black;
+}
+
+.col-md-4 a {
+    cursor: pointer;
+}
+
+.tend-res a {
+    transition: all 500ms ease 0s;
+    text-decoration: none;
+    outline: 0 solid transparent;
+    color: #131212;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.tend-res h3 {
+    width: 96%;
+    height: 50px;
+}
+
+@media only screen and (max-width: 800px) {
+    .row-res {
+        width: 100%;
+        margin-left: 0!important;
+    }
+
+    .col-md-4 {
+        width: 50%;
+        float: left;
+    }
+
+    .new-title {
+        margin-left: 0;
+    }
+}
+
+

@@ -1,0 +1,234 @@
+.content-about {
+    display: block;
+    overflow: hidden;
+}
+
+.about1 {
+    background-color: #ffffff;
+    display: block;
+    overflow: hidden;
+}
+
+.about2 {
+    background-color: #bd945d;
+    overflow: hidden;
+}
+
+.about3 {
+    background-color: #8e5a2d;
+    overflow: hidden;
+}
+
+.img-about1 {
+    display: inline-block;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    position: relative;
+}
+
+.div-img-1 {
+    float: right;
+}
+
+.div-img-2 {
+    float: left;
+}
+
+.img-about1 img {
+    width: 100%;
+  }
+
+.background1-about {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, white , transparent);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.background2-about {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to left, #bd945d , transparent);
+    top: 50%;
+    left: 50%;
+    transform: translate(-49.9%, -50%);
+    z-index: 9999;
+}
+
+.background3-about {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, #8e5a2d , transparent);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+.cap-about {
+    margin: 41px 120px;
+}
+
+.cap2-about {
+    margin: 65px 120px;
+    text-align: right;
+}
+
+.cap-about1 {
+    width: 50%;
+    float: right;
+}
+
+.cap-about2 {
+    width: 50%;
+    float: right;
+}
+
+.tend-about a {
+    display: block;
+    font-size: 45px;
+    line-height: 55px;
+    font-weight: normal;
+    color: #53382c;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.tend-about a:hover {
+    transition: all 0.3s linear;
+    color: #ffc266;
+}
+
+.tend2-about a {
+    display: block;
+    font-size: 45px;
+    line-height: 55px;
+    font-weight: normal;
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.tend2-about a:hover {
+    transition: all 0.3s linear;
+    color: #ffc266;
+}
+
+.tend3-about a {
+    display: block;
+    font-size: 45px;
+    line-height: 55px;
+    font-weight: normal;
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.des-about p {
+    font-size: 15px;
+}
+
+.des2-about p{
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.des3-about p{
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.link-about a{
+    display: inline-block;
+    font-size: 16px;
+    line-height: 24px;
+    color: #b22830;
+    text-transform: uppercase;
+    border: solid 1px #b22830;
+    padding: 7px 63px;
+    border-radius: 5px; 
+    text-decoration: none;
+}
+
+.link2-about a{
+    display: inline-block;
+    font-size: 16px;
+    line-height: 24px;
+    color: #ffffff;
+    text-transform: uppercase;
+    border: solid 1px #ffffff;
+    padding: 7px 63px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.link-about a:hover {
+    background-color: #b22830;
+    color: white;
+    transition: all 0.3s linear;
+}
+
+.link2-about a:hover {
+    background: #ffffff;
+    color: #b22830;
+    transition: all 0.3s linear;
+}
+
+@media (max-width: 800px) {
+
+    .img-about1 {
+        width: 100%;
+    }
+    .background1-about {
+        background-size: cover;
+        background-image: url("https://www.highlandscoffee.com.vn/vnt_upload/about/ABOUT-ORIGIN.png");
+    }
+    .cap-about1 {
+        width: 100%;
+        float: right;
+    }
+    .cap-about {
+        margin: 30px 30px;
+    }
+    .img-about2 {
+        width: 100%;
+    }
+    .background2-about {
+        background-size: cover;
+        background-image: url("https://www.highlandscoffee.com.vn/vnt_upload/about/About_Customer_service_2.jpg");
+    }
+    .cap-about2 {
+        width: 100%;
+    }
+    .cap2-about {
+        margin: 30px 30px;
+        text-align: left;
+    }
+    .img-about3 {
+        width: 100%;
+    }
+    .background3-about {
+        background-size: cover;
+        background-image: url("https://www.highlandscoffee.com.vn/vnt_upload/about/ABOUT-CAREER3.jpg");
+    }
+    .main-cate {
+        width: 100%;
+        margin-left: -21%;
+    }
+    .background1-about {
+        position: relative;
+    }
+}
+
+
+ 

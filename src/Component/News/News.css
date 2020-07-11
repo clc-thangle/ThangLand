@@ -1,0 +1,117 @@
+.row-new {
+    width: 80%;
+    margin-left: 11% !important;   
+    overflow: hidden;
+}
+
+.content-new {
+    overflow: hidden;
+}
+
+.new-title {
+    margin-left: 11%;
+    margin-top: 42px;
+    margin-bottom: 20px;
+}
+
+.col-md-4-new {
+    margin-bottom: 15px;
+}
+
+.col-md-4-new a {
+    cursor: pointer;
+}
+
+.tend-new a {
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.tend-new h3 {
+    width: 96%;
+    height: 50px;
+}
+
+.rowpadding-news {
+    width: 33.333333%;
+}
+
+.new-more-new {
+    text-align: center;
+    margin: 40px;
+}
+
+.tend-new a {
+    color: black;
+}
+
+.khampha-new:hover {
+    background: #b22830 !important;
+    border-color: #b22830 !important;
+    color: #ffffff !important;
+    transition: all 0.3s linear;
+}
+
+.khampha-new {
+    height: 53px;
+    font-size: 18px;
+    border-style: solid;
+    width: 239px;
+    padding: 10px 45px 10px 45px;
+    border-radius: 5px;
+    border-color: #b22830;
+    cursor: pointer;
+    border-width: 1px;
+}
+
+.mainBot-new {
+    display: block;
+}
+
+.mainBotImg-new {
+    width: 30%;
+    display: inline-block;
+}
+
+.newfeed3-new {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.txtBot-new {
+    width: 70%;
+    float: right;   
+}
+
+/* .txtBot2 {
+    text-align: left;
+    display: inline-block;
+    float: left;
+} */
+
+.fa-calender-new {
+    margin-right: 10px;
+}
+
+.txtCalendar-new {
+    margin-top: 7px;
+} 
+
+.mainBotImg2-new {
+   width: 24%;float: left;
+}
+
+@media only screen and (max-width: 800px) {
+    .row-new {
+        width: 100%;
+        margin-left: 0!important;
+    }
+
+    .col-md-4-new {
+        width: 50%;
+    }
+
+    .new-title {
+        margin-left: 0;
+    }
+}

@@ -1,0 +1,90 @@
+.content-pro {
+    overflow: hidden;
+}
+
+.new-title {
+    margin-left: 11%;
+    margin-top: 42px;
+    margin-bottom: 20px;
+}
+
+hr {
+    margin-left: 11%;
+    margin-right: 20%;
+}
+
+/* .menu-img {
+    margin-left: 20px;
+    margin-right: 20px;
+    border: solid 1px rgb(243, 189, 122);
+    padding: 100px 60px 100px 60px;
+    width: 20.333333% !important;
+} */
+
+/* .slick-slide {
+    width: 300px !important;
+} */
+
+.rowpadding {
+    width: 75.333333% !important;
+}
+
+.col-md-4 a {
+    cursor: pointer;
+}
+
+.row {
+    text-align: center;
+}
+
+.tend-pro a {
+    font-size: 15px;
+    text-decoration: none;
+    color: black;
+}
+
+.tend-pro {
+
+}
+
+.tend-pro h3 {
+    width: 103%;
+}
+
+.main-content {
+    margin-left: 10.5%;
+    margin-right: 21.5%;
+}
+
+.content-title {
+    margin-left: 170px;
+    margin-top: 50px;
+}
+
+@media (max-width: 800px) {
+    .content-pro p {
+        margin: 0!important;
+        width: 100%!important;
+    }
+    .content-title {
+        margin-left: 0!important;
+        margin-bottom: 5%;
+    }
+    .banh {
+        visibility: hidden;
+        height: 0;
+    }
+    .main-content {
+        margin-top: 10%;
+        margin-left: 0;
+    }
+    .sp {
+        width: 50%!important;
+    }
+    .menu-img {
+        padding: 35% 21% 35% 23%;
+    }
+    .tend-pro {
+        margin-top: 15%;
+    }
+  }

@@ -1,0 +1,60 @@
+.colRight i {
+    position: absolute;
+    margin: 10px;
+}
+
+.contact {
+    overflow: hidden;
+    margin-bottom: 8%;
+}
+
+.colRight input {
+    padding-left: 33px;
+}
+
+.col6 {
+    width: 50%;
+    float: right;
+}
+
+.code {
+    float: right;
+    margin-top: -35px;
+    height: 36px;
+
+}
+
+.form-group a {
+    position: absolute;
+    float: right;
+    height: 53px;
+    font-size: 18px;
+    border-style: solid;
+    width: 239px;
+    padding: 12px;
+    border-radius: 5px;
+    text-align: center;
+    border-color: rgb(177, 42, 45);
+    color: rgb(177, 42, 45);
+    text-decoration: none;
+    cursor: pointer;
+    border-width: 1px;
+    margin-bottom: 20px;
+}
+
+.form-group a:hover {
+    color: white;
+    background-color: rgb(177, 42, 45);
+    transition: all 0.3s linear;
+}
+
+@media only screen and (max-width: 800px) {
+    .col6 img {
+        display: none;
+    }
+
+    .col6 {
+        width: 90%;
+        float: left;
+    }
+}

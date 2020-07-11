@@ -1,0 +1,229 @@
+.image1 {
+  background-image: url(https://www.highlandscoffee.com.vn/vnt_upload/product/04_2018/menu-PSD-bg.jpg);
+  background-size: cover;
+}
+
+.image2 {
+  background-image: url(https://www.highlandscoffee.com.vn/vnt_upload/product/04_2018/menu-FREEZE.jpg);
+  background-size: cover;
+}
+
+.image3 {
+  background-image: url(https://www.highlandscoffee.com.vn/vnt_upload/product/04_2018/menu-TEA-bg.jpg);
+  background-size: cover;
+}
+
+.image4 {
+  background-image: url(https://www.highlandscoffee.com.vn/vnt_upload/product/03_2018/menu-BANHMI-bg_2.jpg);
+  background-size: cover;
+}
+
+.caption {
+  width: 50%;
+  float: left;
+  margin: 65px 0px 0px 170px;
+}
+
+
+.caption2 {
+  width: 50%;
+  float: right;
+  margin: 65px 0px 0px 170px;
+}
+
+.caption3 {
+  width: 50%;
+  float: left;
+  margin: 55px 0px 0px 170px;
+}
+
+.caption4 {
+  width: 44%;
+  float: right;
+  margin: 80px 0px 0px 0px;
+}
+
+.tend {
+  height: 78px;
+}
+
+.tend a {
+  font-size: 45px;
+}
+
+.tend2 {
+  height: 85px;
+}
+
+.tend-img2 {
+  padding-left: 10%;
+}
+
+.tend3 {
+  height: 85px;
+}
+
+.des {
+  height: 180px;
+  width: 76%;
+}
+
+.des2 {
+  height: 125px;
+  width: 66%;
+}
+
+.des3 {
+  height: 125px;
+  width: 66%;
+}
+
+.des4 {
+  height: 145px;
+  width: 90%;
+}
+
+.des4 span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.des3 span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.des2 span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.des span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.image1 a {
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: -3%;
+}
+
+.image2 a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.image3 a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.image4 a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.khampha:hover {
+  background: #b22830 !important;
+  border-color: #b22830 !important;
+  color: #ffffff !important;
+  transition: all 0.3s linear;
+}
+
+.khampha {
+  position: absolute;
+  float: right;
+  height: 53px;
+  font-size: 18px;
+  border-style: solid;
+  width: 239px;
+  padding: 12px;
+  border-radius: 5px;
+  text-align: center;
+  border-color: rgb(243, 189, 122);
+  color: rgb(243, 189, 122);
+  text-decoration: none;
+  cursor: pointer;
+  border-width: 1px;
+}
+
+@media only screen and (max-width: 800px) {
+  .caption {
+    margin: 0;
+    width: 97%;
+  }
+
+  .tend {
+    margin-top: 60%;
+  }
+
+  .des {
+    width: 100%;
+    height: 175px;
+  }
+
+  .tend-img {
+    margin-top: -93%;
+    margin-left: 24%;
+  }
+
+  .khampha {
+    margin-top: -8%;
+  }
+
+  .tend-img2 {
+    margin-left: 24%;
+    margin-top: -106%;
+    padding-left: 0;
+  }
+
+  .caption2 {
+    width: 100%;
+    float: right;
+    margin-bottom: 8%;
+    margin-top: -3%;
+  }
+
+  .des2 {
+    width: 100%;
+    height: 145px;
+  }
+
+  .tend-img3 {
+    margin-top: -110%;
+    margin-left: 23%;
+  }
+
+  .caption3 {
+    width: 100%;
+    float: right;
+    margin-top: 50%;
+  }
+
+  .des3 {
+    width: 100%;
+    height: 145px;
+  }
+
+  .tend-img4 {
+    margin-top: -120%;
+    margin-left: 13%;
+  }
+
+  .caption4 {
+    width: 100%;
+    float: right;
+    margin-top: 50%;
+  }
+
+  .des4 {
+    width: 100%;
+    height: 185px;
+  }
+
+  .image1 {
+    padding-bottom: 10%;
+  }
+
+}
