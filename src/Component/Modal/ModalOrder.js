@@ -22,17 +22,20 @@ class ModalOrder extends Component {
     }
 
     render() {
+
+        console.log(this.props.product);
+
         return (
             <div className="modal-content">
                 <div className="modal-header">
                     <div className="row align-items-center">
                         <div className="col-auto topping-dish-image">
-                            <img src="https://images.foody.vn/res/g1/7939/s120x120/201892511503-phin-den-da.jpg" alt="Phin Sữa Đá" />
+                            <img src={this.props.product.photos[0].value} alt="Phin Sữa Đá" />
                         </div>
                         <div className="col topping-summary">
-                            <div className="topping-dish-name">Phin Sữa Đá</div>
-                            <div className="topping-dish-desc">PHIN Coffee &amp; Condensed Milk</div>
-                            <div className="topping-dish-price">Giá: <span>29,000đ</span></div>
+                            <div className="topping-dish-name">{this.props.product.name}</div>
+                            <div className="topping-dish-desc">{this.props.product.description}</div>
+                            <div className="topping-dish-price">Giá: <span>{this.props.product.price.text}</span></div>
                         </div>
                     </div>
                 </div>
@@ -83,7 +86,7 @@ class ModalOrder extends Component {
                         </div>
                     </div>
                     <div className="col-auto">
-                        <button type="button" className="btn btn-red">Ok&nbsp;+&nbsp;29,000đ</button>
+                        <button type="button" className="btn btn-red">Ok <span>{this.props.product.price.text}</span> </button>
                     </div>
                 </div>
                 </div>

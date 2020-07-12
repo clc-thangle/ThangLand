@@ -14,15 +14,16 @@ class Shop extends Component {
         super(props);
         this.state = {
             arrayCategory: [],
-            showModal: false
+            showModal: false,
+            product: {}
         }
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
     }
 
     handleOpenModal(val) {
-        this.setState({ showModal: true });
-        // this.props.addObject(val)
+        this.setState({ showModal: true, product: val });
+
     }
 
     handleCloseModal() {
@@ -81,6 +82,7 @@ class Shop extends Component {
     // }
 
     render() {
+        console.log(this.state.product);
         console.log(this.state.arrayCategory.length);
         return (
             <div className="contentShop">
@@ -110,15 +112,7 @@ class Shop extends Component {
                             <button className="modal-container-button" onClick={this.handleCloseModal}>
                                 <i className="fa fa-times" aria-hidden="true"></i>
                             </button>
-                            {/* {
-                                this.state.arrayCategory.map((value, key) =>
-                                    <div key={key} id={key}>
-                                        {
-                                            this.showDataModal(value)
-                                        }
-                                    </div>
-                                )} */}
-                                <ModalOrder/>
+                            <ModalOrder product={this.state.product}/>
                         </div>
                     </Modal>
                 </div>
