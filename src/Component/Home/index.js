@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import './index.css';
 class Home extends Component {
     render() {
@@ -18,15 +19,15 @@ class Home extends Component {
                         </div>
                     </div>
                     <div className="image1-tend">
-                        <a className="khampha">KHÁM PHÁ THÊM</a>
+                        <Link to='/shop' className="khampha">KHÁM PHÁ THÊM</Link>
                         <img src="https://www.highlandscoffee.com.vn/vnt_upload/weblink/HCO-7548-PHIN-SUA-DA-2019-TALENT-WEB_1.jpg" width="100%" />
                     </div>
                     <div className="image2-tend">
-                        <a className="khampha2">KHÁM PHÁ THÊM</a>
+                        <Link to='/shop' className="khampha2">KHÁM PHÁ THÊM</Link>
                         <img src="https://www.highlandscoffee.com.vn/vnt_upload/weblink/Product_banner_confirmed.jpg" width="100%" />
                     </div>
                     <div className="image3-tend">
-                        <a className="khampha3-tend">KHÁM PHÁ THÊM</a>
+                        <Link to='/shop' className="khampha3-tend">KHÁM PHÁ THÊM</Link>
                         <img src="https://www.highlandscoffee.com.vn/vnt_upload/weblink/HCO-7605-FESTIVE-2020-WEB-FB-2000X639_1.png" width="100%" />
                     </div>
                     <div className="mainBot-tend">

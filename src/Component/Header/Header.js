@@ -52,17 +52,17 @@ class Header extends Component {
                   <ul>
                     <li className="hover-li">
                       <div className="m-cate">
-                        <Link to="/category" href="#" className="hover-li-item">CÀ PHÊ</Link>
+                        <Link to='/shop' href="#" className="hover-li-item">CÀ PHÊ</Link>
                         <a className="menuxt2"><i className="fa fa-angle-right" aria-hidden="true" />
                           <i className="fa fa-angle-down" aria-hidden="true" /></a></div>
                       <ul className="menuxt2-show">
-                        <li><Link to="product">Cà Phê Phin</Link></li>
+                        <li><Link to='/shop'>Cà Phê Phin</Link></li>
                         <li><a>Cà Phê Espresso</a></li>
                       </ul>
                     </li>
                     <li className="hover-li">
                       <div className="m-cate">
-                        <Link to="/category" href="#" className="hover-li-item">FREEZE</Link>
+                        <Link to='/shop' href="#" className="hover-li-item">FREEZE</Link>
                         <a className="menuxt2"><i className="fa fa-angle-right" aria-hidden="true" />
                           <i className="fa fa-angle-down" aria-hidden="true" /></a></div>
                       <ul className="menuxt2-show">
@@ -71,7 +71,7 @@ class Header extends Component {
                       </ul>
                     </li>
                     <li className="hover-li">
-                      <div className="m-cate"><Link to="/cate" href="#" className="hover-li-item">TRÀ</Link>
+                      <div className="m-cate"><Link to='/shop' href="#" className="hover-li-item">TRÀ</Link>
                         <a className="menuxt2"><i className="fa fa-angle-right" aria-hidden="true" />
                           <i className="fa fa-angle-down" aria-hidden="true" /></a></div>
                       <ul className="menuxt2-show">
@@ -83,7 +83,7 @@ class Header extends Component {
                     </li>
                     <li className="hover-li">
                       <div className="m-cate">
-                      <Link to="/cate" href="#" className="hover-li-item">BÁNH MỲ</Link>
+                      <Link to='/shop' href="#" className="hover-li-item">BÁNH MỲ</Link>
                         <a className="menuxt2"><i className="fa fa-angle-right" aria-hidden="true" />
                           <i className="fa fa-angle-down" aria-hidden="true" /></a></div>
                       <ul className="menuxt2-show">
@@ -95,7 +95,7 @@ class Header extends Component {
                     </li>
                     <li className="hover-li">
                       <div className="m-cate">
-                      <Link to="/cate" href="#" className="hover-li-item">KHÁC</Link>
+                      <Link to='/shop' href="#" className="hover-li-item">KHÁC</Link>
                         <a className="menuxt2"><i className="fa fa-angle-right" aria-hidden="true" />
                           <i className="fa fa-angle-down" aria-hidden="true" /></a></div>
                       <ul className="menuxt2-show">
@@ -156,7 +156,7 @@ class Header extends Component {
         </div>
       </li>
       <li className="menuList header-drop">
-        <Link className="trachnhiem" to="responsibility">TRÁCH NHIỆM CỘNG ĐỒNG</Link>
+        <Link className="trachnhiem" to="/responsibility">TRÁCH NHIỆM CỘNG ĐỒNG</Link>
         <a className="menuxt"><i className="fa fa-angle-right" aria-hidden="true" />
           <i className="fa fa-angle-down" aria-hidden="true" /></a>
         <div className="menuHover">

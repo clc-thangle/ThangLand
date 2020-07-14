@@ -5,6 +5,7 @@ import CateItem from './CateItem';
 
 import Modal from 'react-modal';
 import ModalOrder from '../Modal/ModalOrder';
+import { connect } from 'react-redux';
 
 // import { connect} from 'react-redux'
 
@@ -23,6 +24,7 @@ class Shop extends Component {
 
     handleOpenModal(val) {
         this.setState({ showModal: true, product: val });
+        this.props.addObject(val)
 
     }
 
@@ -82,8 +84,7 @@ class Shop extends Component {
     // }
 
     render() {
-        console.log(this.state.product);
-        console.log(this.state.arrayCategory.length);
+        
         return (
             <div className="contentShop">
                 <div className="row1 cate">
@@ -122,16 +123,16 @@ class Shop extends Component {
         );
     }
 }
-// const mapStateToProps = (state, ownProps) => {
-//     return {
-//     }
-// }
-// const mapDispatchToProps = (dispatch, ownProps) => {
-//     return {
-//         addObject: (addItem) => {
-//             dispatch({ type: 'GET_ADD_DATA', addItem })
-//         }
-//     }
-// }
-export default (Shop);
+const mapStateToProps = (state, ownProps) => {
+    return {
+    }
+}
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        addObject: (addItem) => {
+            dispatch({ type: 'GET_ADD_DATA', addItem })
+        }
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Shop);
 Modal.setAppElement('body');
