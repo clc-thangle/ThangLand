@@ -235,6 +235,9 @@ class Header extends Component {
       <li className="menuList">
         <Link to="/contact" className="lienhe">LIÊN HỆ</Link>
       </li>
+      <li className="menuList"> 
+        <Link to='/login' className="dangnhap">ĐĂNG NHẬP</Link>
+      </li>
       <li className="menuList">
         <Link to="/cart" className="fa fa-shopping-cart" aria-hidden="true" />
       </li>
