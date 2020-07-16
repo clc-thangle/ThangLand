@@ -21,7 +21,7 @@
     transform: translate(-50%, -50%);
     background: white;
 }
-/* sjnc */
+
 .ReactModal__Content.ReactModal__Content--after-open {
     border: unset !important;
     background-color: unset !important;
@@ -48,7 +48,9 @@
   
   .ReactModal__Body--open::-webkit-scrollbar {
     width: 0px;
-    /* Remove scrollbar space */
     background: transparent;
-    /* Optional: just make scrollbar invisible*/
+  }
+
+  .inputModal {
+    width: 5%;
   }

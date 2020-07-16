@@ -1,5 +1,4 @@
 var redux = require('redux');
-var _ = require('lodash');
 const noteInitialState = {
     addItem: {},
 }

@@ -9,14 +9,21 @@ class ModalOrder extends Component {
         this.state = {
             showModal: false,
             product: {},
-            arrayOption: []
+            arrayOption: [],
+
+            count: 1,
+            toppingText: [],
+            toppingOption: [],
+
+            priceForSize: 0,
+            priceForTopping: 0
         };
 
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
     }
     componentDidMount() {
-        
+
         this.setState({
             product: this.props.addItem,
             image: this.props.addItem.photos[0].value,
@@ -28,19 +35,38 @@ class ModalOrder extends Component {
             value1.option_items.items.map(value2 => {
                 if (value2.price.value == 0 && value1.name == "Chọn Size") {
                     this.setState({
-                        size : value2
+                        size: value2,
+                        priceForSize : value2.price.value
                     });
                 }
                 else if (value2.is_default == true && value1.name == 'Chọn Đá/Nóng - Iced/Hot') {
-                   this.setState({
-                    isIced: true
-                   });
+                    this.setState({
+                        isIced: true
+                    });
                 }
 
             })
         })
     }
 
+    plus(count) {
+        this.setState({
+            count: count + 1
+        })
+        return count;
+    }
+
+    minus(count) {
+        if (count == 0) {
+            count = 0;
+        }
+        else {
+            this.setState({
+                count: count - 1
+            })
+        }
+        return count;
+    }
 
     handleOpenModal() {
         this.setState({ showModal: true });
@@ -50,9 +76,60 @@ class ModalOrder extends Component {
         this.setState({ showModal: false });
     }
 
+    isChangeTopping = (event, values) => {
+        var list1 = this.state.toppingText ? this.state.toppingText : [];
+        console.log(event.target.checked );
+        if(event.target.checked == true) {
+            list1.push(event.target.value);
+        }
+        else {
+            var index = list1.indexOf(event.target.value);
+            if (index !== -1) {
+                list1.splice(index,1);
+            }
+        }
+
+        var list = this.state.toppingOption ? this.state.toppingOption : [];
+        var price = this.state.priceForTopping ? this.state.priceForTopping : 0;
+
+        if(event.target.checked == true) {
+            list.push(values);
+            price += parseInt(values.price.value)
+        }
+        else {
+            for (var i = 0; i < list.length; i++) {
+                if (list[i].id === values.id) { // nếu là sinh viên cần xóa
+                    list.splice(i, 1); // thì xóa
+                    price -= parseInt(values.price.value)
+                }
+            }
+        }
+        this.setState({ toppingList: list, topping: list1, priceForTopping: price });
+    }
+
+    isChangeSize(values) {
+        this.setState({
+            size: values,
+            priceForSize: values.price.value
+        })
+    }
+
+    printArrayTopping(array) {
+        var text = array.join(' + ');
+        return text;
+    }
+
+    isSize() {
+        if(this.state.size) {
+            
+            return <div className="topping-dish-desc">{this.state.size.name}</div>
+        }
+        else return null;
+    }
+
     render() {
 
-        console.log(this.state);
+        //console.log(this.state);
         const { product, image, text, arrayOption } = this.state;
 
         const item = arrayOption.map((value, key) => {
@@ -73,7 +150,7 @@ class ModalOrder extends Component {
                                                 <div className="row">
                                                     <div className="col">
                                                         <div className="custom-checkbox">
-                                                            <input id={val.id} name={value.name} type="radio" defaultValue={val.id} defaultChecked={val.is_default} />
+                                                            <input onChange={() => this.isChangeSize(val)} id={val.id} name={value.name} type="radio" defaultValue={val.id} defaultChecked={val.is_default} />
                                                             <label htmlFor={val.id}>{val.name}<span className="topping-item-price">(+{val.price.text})</span></label>
                                                         </div>
                                                     </div>
@@ -100,7 +177,7 @@ class ModalOrder extends Component {
                                                 <div className="row">
                                                     <div className="col">
                                                         <div className="custom-checkbox">
-                                                            <input id={val.id} name={value.name} type="checkbox" />
+                                                            <input value={val.name} onChange={(event) => this.isChangeTopping(event,val)} id={val.id} name={value.name} type="checkbox" />
                                                             <label htmlFor={val.id}>{val.name}<span className="topping-item-price">(+{val.price.text})</span>
                                                             </label>
                                                         </div>
@@ -119,7 +196,7 @@ class ModalOrder extends Component {
                         return (
                             <div className="topping-category-item">
                                 <div className="topping-name">{value.name}
-                                <span className="topping-note">
+                                    <span className="topping-note">
                                         <span>(BẮT BUỘC)</span>
                                     </span>
                                 </div>
@@ -149,6 +226,8 @@ class ModalOrder extends Component {
             }
         })
 
+        console.log(this.state.size);
+
         return (
             <div className="modal-content">
                 <div className="modal-header">
@@ -158,8 +237,10 @@ class ModalOrder extends Component {
                         </div>
                         <div className="col topping-summary">
                             <div className="topping-dish-name">{product.name}</div>
+                            {this.isSize()}
                             <div className="topping-dish-desc">{product.description}</div>
                             <div className="topping-dish-price">Giá: <span>{text}</span></div>
+                            <div>{this.printArrayTopping(this.state.toppingText)}</div>
                         </div>
                     </div>
                 </div>
@@ -171,13 +252,13 @@ class ModalOrder extends Component {
                 <div className="modal-footer"><div className="row align-items-center">
                     <div className="col">
                         <div className="topping-add-sub">
-                            <div className="btn-sub">-</div>
-                            <input type="text" disabled defaultValue={1} />
-                            <div className="btn-adding">+</div>
+                            <button onClick={() => this.minus(this.state.count)} className="btn-sub">-</button>
+                            <input className="inputModal" type="text" disabled defaultValue={1} value={this.state.count}/>
+                            <button onClick={() => this.plus(this.state.count)} className="btn-adding">+</button>
                         </div>
                     </div>
                     <div className="col-auto">
-                        <button type="button" className="btn btn-red">Ok <span>{this.props.product.price.text}</span> </button>
+                        <button type="button" className="btn btn-red">Thêm vào giỏ <span>{this.props.product.price.text}</span> </button>
                     </div>
                 </div>
                 </div>
