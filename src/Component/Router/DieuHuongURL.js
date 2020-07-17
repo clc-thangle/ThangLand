@@ -14,6 +14,7 @@ import Home from '../Home';
 import Shop from '../Shop/Shop';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
+import Admin from '../Admin/Admin';
 class DieuHuongURL extends Component {
     render() {
         return (
@@ -31,8 +32,9 @@ class DieuHuongURL extends Component {
                     <Route exact path="/news" component={News}/>
                     <Route exact path="/contact" component={Contact}/>
                     <Route exact path="/shop" component={Shop}/>
-                    <Route exact path="/login" component={Login}/>
+                    <Route exact path="/login" render={() => <Login login={this.props.userLogin} isLogin={this.props.isLogin}/>}/>
                     <Route exact path="/register" component={Register}/>
+                    <Route exact path="/admin" component={Admin}/>
                     </Switch>
                 </div>
         );

@@ -38,6 +38,11 @@ h2 {
     text-decoration: none;
 }
 
+.btnCancelLogin {
+  display: inline-block;
+  margin-top: 13.5px;
+}
+
 .formLog {
     margin-bottom: 25px;
 }

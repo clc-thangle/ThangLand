@@ -57,7 +57,7 @@ class Register extends Component {
                     <div className="container ctnReg">
                         <h1>Sign Up</h1>
                         <label htmlFor="email"><b>Email</b></label>
-                            <input value={this.state.email} onChange={this.updateInput} className="register" type="text" placeholder="Enter Email" name="email" required />
+                            <input value={this.state.email} onChange={this.updateInput} className="register" type="email" placeholder="Enter Email" name="email" required />
                         <label htmlFor="psw"><b>Password</b></label>
                             <input value={this.state.psw} onChange={this.updateInput} className="register" type="password" placeholder="Enter Password" name="psw" required />
                         <label htmlFor="name"><b>Full name</b></label>
