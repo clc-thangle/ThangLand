@@ -4,13 +4,17 @@ import DieuHuongURL from './Component/Router/DieuHuongURL';
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { db } from './firebaseConnect';
+import Nav from './Admin/Nav';
 class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
       user: [],
-      isLogin: localStorage.getItem('user') ? true : false
+      isLogin: localStorage.getItem('user') ? true : false,
+      isUser:  JSON.parse(localStorage.getItem('user'))
+
+
     }
   }
 
@@ -35,7 +39,8 @@ class App extends Component {
         localStorage.setItem('user', JSON.stringify(value));
         a++;
         this.setState({
-          isLogin: true
+          isLogin: true,
+          isUser: value
         })
       }
       else {
@@ -57,7 +62,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Header isLogin={this.state.isLogin} logOut={this.logOut} />
+          <Header isLogin={this.state.isLogin} logOut={this.logOut} isUser={this.state.isUser}/>
           <DieuHuongURL userLogin={(em, pw) => this.userLogin(em, pw)} isLogin={this.state.isLogin} />
           <Footer />
         </div>

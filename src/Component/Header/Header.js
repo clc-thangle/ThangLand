@@ -2,8 +2,15 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './Header.css'
 class Header extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+        login: localStorage.getItem('user') ? true : false
+    }
+}
+
   render() {
-    console.log(this.state);
     return (
       <div className="ncf-header">
         <div className="logo">
@@ -239,10 +246,9 @@ class Header extends Component {
             <li className="menuList">
               {this.props.isLogin ? <Link to='/' onClick={() => this.props.logOut()} className="dangnhap">ĐĂNG XUẤT</Link>
                 : <Link to='/login' className="dangnhap">ĐĂNG NHẬP</Link>}
-
             </li>
             <li className="menuList">
-              <Link to="/cart" className="fa fa-shopping-cart" aria-hidden="true" />
+              {this.props.isUser ? (this.props.isUser.role == 'user' ? <Link to="/cart" className="fa fa-shopping-cart" aria-hidden="true" /> : <Link to='/admin'>ADMIN</Link>):<Link to="/cart" className="fa fa-shopping-cart" aria-hidden="true" />}
             </li>
           </ul>
         </div>

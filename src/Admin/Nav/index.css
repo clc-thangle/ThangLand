@@ -1,0 +1,27 @@
+.navAdmin {
+    float: left;
+    width: 20%;
+    background-color: #80b3ff;
+    position: fixed;
+}
+.img-circle {
+    margin-left: 14%;
+    margin-top: 10%;
+    margin-bottom: 15%;
+}
+.sub-menu{
+    list-style: none;
+}
+.sub-menu a{
+    text-decoration: none;
+    color: black;
+}
+.fa-th {
+    color: #cce0ff;
+    margin-left: 17%;
+    margin-bottom: 10%;
+}
+.nameRow {
+    color: #ffffff;
+    margin-left: 10%;
+}

@@ -15,7 +15,8 @@ class Register extends Component {
             name: '',
             address: '',
             phone: '',
-            linkAvt: ''
+            linkAvt: '',
+            role: '',
         }
     }
 
@@ -37,7 +38,8 @@ class Register extends Component {
             name : this.state.name,
             address : this.state.address,
             phone : this.state.phone,
-            linkAvt : this.state.linkAvt
+            linkAvt : this.state.linkAvt,
+            role : 'user'
         })
         this.setState({
             email: '',

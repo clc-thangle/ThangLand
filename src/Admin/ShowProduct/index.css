@@ -1,0 +1,13 @@
+.productAdmin {
+    float: right;
+    width: 75%;
+}
+.productAdmin th {
+    text-align: center;
+}
+.productAdmin table {
+    text-align: center; 
+}
+.desAdmin {
+    width: 50%;
+}
