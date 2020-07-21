@@ -9,9 +9,9 @@ class Nav extends Component {
           <div id="sidebar" className="navAdmin">
             {/* sidebar menu start*/}
             <ul className="sidebar-menu" id="nav-accordion">
-              <p className="centered"><a href="profile.html"><img src='https://lh3.googleusercontent.com/proxy/MCXTlYBUsrP8gfE8z-btKnzHuoHXaELXw-_Yk_e6B1vu89Ea2ndpaBVreUKW7O-sd7bUSr03Zxdf8GPkd_RAZG28drOIo4e8a5f-AbdfthvX6a3LT4mjY2I4W2ABSiuD0S74yCQsjA8' className="img-circle" width={150}/></a></p>
+              <p className="centered"><a href="profile.html"><img src='https://lh3.googleusercontent.com/proxy/0El-VO6YHG0aWQYf8rEBpzse1UaWWsvEhGtJ5eSdEB9IZSVLpeQTUMMpOK6W4hTib9DeF-EDfK__75UeHEU5-7Y9odJA1A5W1OZgyJeMgBd8SB4nugbri7AsDiIbcg7J9SrZhFaOgDw' className="img-circle" width={150}/></a></p>
               <li className="sub-menu dcjq-parent-li">
-                <Link to='/admin/users' className="dcjq-parent">
+                <Link to='/admin/showUser' className="dcjq-parent">
                   <i className="fa fa-th" />
                   <span className="nameRow">Users Table</span>
                   <span className="dcjq-icon" /></Link>

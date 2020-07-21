@@ -4,7 +4,7 @@ import DieuHuongURL from './Component/Router/DieuHuongURL';
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { db } from './firebaseConnect';
-import Nav from './Admin/Nav';
+
 class App extends Component {
 
   constructor(props) {
@@ -12,9 +12,8 @@ class App extends Component {
     this.state = {
       user: [],
       isLogin: localStorage.getItem('user') ? true : false,
-      isUser:  JSON.parse(localStorage.getItem('user'))
-
-
+      isUser:  JSON.parse(localStorage.getItem('user')),
+      cart:[],
     }
   }
 
@@ -54,16 +53,23 @@ class App extends Component {
   logOut = () => {
     localStorage.removeItem('user');
     this.setState({
-      isLogin: false
+      isLogin: false,
+      isUser: null
     });
   }
+
+ addToCart =(product)=>{
+      let cart= this.state.cart;
+      cart.push(product);
+      this.setState({cart});
+ }
 
   render() {
     return (
       <Router>
         <div className="App">
           <Header isLogin={this.state.isLogin} logOut={this.logOut} isUser={this.state.isUser}/>
-          <DieuHuongURL userLogin={(em, pw) => this.userLogin(em, pw)} isLogin={this.state.isLogin} />
+          <DieuHuongURL userLogin={(em, pw) => this.userLogin(em, pw)} isLogin={this.state.isLogin} addToCart={this.addToCart} cart={this.state.cart}/>
           <Footer />
         </div>
       </Router>

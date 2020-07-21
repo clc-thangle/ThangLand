@@ -113,7 +113,7 @@ class Shop extends Component {
                             <button className="modal-container-button" onClick={this.handleCloseModal}>
                                 <i className="fa fa-times" aria-hidden="true"></i>
                             </button>
-                            <ModalOrder product={this.state.product}/>
+                            <ModalOrder product={this.state.product} addToCart={this.props.addToCart} cart={this.props.cart}/>
                         </div>
                     </Modal>
                 </div>

@@ -32,7 +32,6 @@ class ShowProduct extends Component {
     }
 
     showProCate = (cate) => {
-        
         var listPro = cate.dishes.map((val, key) =>
             <tr>
                 <td>{key}</td>

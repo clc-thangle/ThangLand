@@ -17,6 +17,7 @@ import Register from '../Register/Register';
 import Admin from '../../Admin/Admin';
 import NoAuthority from '../NoAuthority/NoAuthority';
 import ShowProduct from '../../Admin/ShowProduct';
+import ShowUser from '../../Admin/ShowUser';
 
 const PrivateRoute = ({ render: Component, ...rest }) => (
     <Route {...rest} render={(props) => (
@@ -42,12 +43,13 @@ class DieuHuongURL extends Component {
                     <Route exact path="/about" component={AboutUs} />
                     <Route exact path="/news" component={News} />
                     <Route exact path="/contact" component={Contact} />
-                    <Route exact path="/shop" component={Shop} />
+                    <Route exact path="/shop" render={()=><Shop addToCart={this.props.addToCart} cart={this.props.cart}/>} />
                     <Route exact path="/login" render={() => <Login login={this.props.userLogin} isLogin={this.props.isLogin} />} />
                     <Route exact path="/register" component={Register} />
                     <PrivateRoute exact path="/admin" render={Admin} />
                     <Route path="/no_authority" component={NoAuthority} />
                     <Route path="/admin/showProduct" render={() => <Admin><ShowProduct/></Admin>}/>
+                    <Route path="/admin/showUser" render={() => <Admin><ShowUser/></Admin>}/>
                 </Switch>
             </div>
         );

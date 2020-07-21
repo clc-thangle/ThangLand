@@ -11,6 +11,7 @@ class Header extends Component {
 }
 
   render() {
+    console.log(this.props.isUser);
     return (
       <div className="ncf-header">
         <div className="logo">

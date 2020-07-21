@@ -52,5 +52,35 @@
   }
 
   .inputModal {
-    width: 5%;
+    width: 15%;
+    border: none;
+  }
+
+  .custom-checkbox label {
+    display: inline-block;
+  }
+
+  .custom-checkbox input {
+    margin-right: 5%
+  }
+
+  .custom-checkbox {
+    width: 120%;
+  }
+
+  .colModal {
+    display: inline-block;
+    padding: 10px;
+    margin-top: 13px;
+  }
+  .topping-add-sub button{
+    color: rgb(177, 42, 45);
+    border: none;
+    border-radius: 3px;
+    padding: 5px 15px;
+  }
+  .topping-add-sub button:hover {
+    background-color: rgb(177, 42, 45);
+    transition: all 0.3s linear;
+    color: white;
   }

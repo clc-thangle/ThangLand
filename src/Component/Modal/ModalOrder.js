@@ -12,6 +12,7 @@ class ModalOrder extends Component {
             arrayOption: [],
 
             count: 1,
+            total: 0,
             toppingText: [],
             toppingOption: [],
 
@@ -27,8 +28,9 @@ class ModalOrder extends Component {
         this.setState({
             product: this.props.addItem,
             image: this.props.addItem.photos[0].value,
-            text: this.props.addItem.price.value,
+            text: this.props.addItem.price.text,
             arrayOption: this.props.addItem.options,
+            price: this.props.addItem.price.value
         });
 
         this.props.addItem.options.map(value1 => {
@@ -57,8 +59,8 @@ class ModalOrder extends Component {
     }
 
     minus(count) {
-        if (count == 0) {
-            count = 0;
+        if (count == 1) {
+            count = 1;
         }
         else {
             this.setState({
@@ -66,6 +68,12 @@ class ModalOrder extends Component {
             })
         }
         return count;
+    }
+
+    changPrice(x) {
+        if (x) {
+            return x.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
+        }
     }
 
     handleOpenModal() {
@@ -78,7 +86,7 @@ class ModalOrder extends Component {
 
     isChangeTopping = (event, values) => {
         var list1 = this.state.toppingText ? this.state.toppingText : [];
-        console.log(event.target.checked );
+        // console.log(event.target.checked );
         if(event.target.checked == true) {
             list1.push(event.target.value);
         }
@@ -98,13 +106,18 @@ class ModalOrder extends Component {
         }
         else {
             for (var i = 0; i < list.length; i++) {
-                if (list[i].id === values.id) { // nếu là sinh viên cần xóa
-                    list.splice(i, 1); // thì xóa
+                if (list[i].id === values.id) { 
+                    list.splice(i, 1); 
                     price -= parseInt(values.price.value)
                 }
             }
         }
         this.setState({ toppingList: list, topping: list1, priceForTopping: price });
+    }
+
+    total() {
+        var total = (this.state.price + this.state.priceForSize + (this.state.priceForTopping ? this.state.priceForTopping : 0)) * this.state.count;
+        return total
     }
 
     isChangeSize(values) {
@@ -120,16 +133,30 @@ class ModalOrder extends Component {
     }
 
     isSize() {
+
         if(this.state.size) {
-            
             return <div className="topping-dish-desc">{this.state.size.name}</div>
         }
         else return null;
     }
 
+    addToCart() {
+        let data = this.state;
+        data.total = this.total()
+
+
+        const arr = JSON.parse(localStorage.getItem('data')) || [];
+        var datas = [...arr, data];
+        localStorage.setItem('data', JSON.stringify(datas));
+
+
+
+    }
+
+
     render() {
 
-        //console.log(this.state);
+        console.log(this.state);
         const { product, image, text, arrayOption } = this.state;
 
         const item = arrayOption.map((value, key) => {
@@ -151,7 +178,7 @@ class ModalOrder extends Component {
                                                     <div className="col">
                                                         <div className="custom-checkbox">
                                                             <input onChange={() => this.isChangeSize(val)} id={val.id} name={value.name} type="radio" defaultValue={val.id} defaultChecked={val.is_default} />
-                                                            <label htmlFor={val.id}>{val.name}<span className="topping-item-price">(+{val.price.text})</span></label>
+                                                            <label htmlFor={val.id}>{val.name}<span className="topping-item-price">(+{val.price.value}đ)</span></label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -178,7 +205,7 @@ class ModalOrder extends Component {
                                                     <div className="col">
                                                         <div className="custom-checkbox">
                                                             <input value={val.name} onChange={(event) => this.isChangeTopping(event,val)} id={val.id} name={value.name} type="checkbox" />
-                                                            <label htmlFor={val.id}>{val.name}<span className="topping-item-price">(+{val.price.text})</span>
+                                                            <label htmlFor={val.id}>{val.name}<span className="topping-item-price">(+{val.price.value}đ)</span>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -226,7 +253,7 @@ class ModalOrder extends Component {
             }
         })
 
-        console.log(this.state.size);
+        // console.log(this.state.size);
 
         return (
             <div className="modal-content">
@@ -239,7 +266,7 @@ class ModalOrder extends Component {
                             <div className="topping-dish-name">{product.name}</div>
                             {this.isSize()}
                             <div className="topping-dish-desc">{product.description}</div>
-                            <div className="topping-dish-price">Giá: <span>{text}</span></div>
+                            <div className="topping-dish-price">Giá mặc định: <span>{text}</span></div>
                             <div>{this.printArrayTopping(this.state.toppingText)}</div>
                         </div>
                     </div>
@@ -250,15 +277,15 @@ class ModalOrder extends Component {
                     </div>
                 </div>
                 <div className="modal-footer"><div className="row align-items-center">
-                    <div className="col">
+                    <div className="col colModal">
                         <div className="topping-add-sub">
                             <button onClick={() => this.minus(this.state.count)} className="btn-sub">-</button>
                             <input className="inputModal" type="text" disabled defaultValue={1} value={this.state.count}/>
                             <button onClick={() => this.plus(this.state.count)} className="btn-adding">+</button>
                         </div>
                     </div>
-                    <div className="col-auto">
-                        <button type="button" className="btn btn-red">Thêm vào giỏ <span>{this.props.product.price.text}</span> </button>
+                    <div className="col-auto"  onClick={() => this.addToCart()}>
+                        <button type="button" className="btn btn-red">Thêm vào giỏ <span>{this.changPrice(this.total()) ? this.changPrice(this.total()) : this.changPrice(this.state.total)}</span> </button>
                     </div>
                 </div>
                 </div>

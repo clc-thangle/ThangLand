@@ -20,45 +20,13 @@ class Cart extends Component {
                                     <input type="text" id="city" name="city" placeholder="New York" />
                                     <div className="row-cart">
                                         <div className="col-50">
-                                            <label htmlFor="state">State</label>
-                                            <input type="text" id="state" name="state" placeholder="NY" />
-                                        </div>
-                                        <div className="col-50">
-                                            <label htmlFor="zip">Zip</label>
-                                            <input type="text" id="zip" name="zip" placeholder={10001} />
+                                            <label htmlFor="state"><i class="fa fa-phone-square" aria-hidden="true"></i>Phone</label>
+                                            <input type="text" id="phone" name="phone" placeholder="Phone" />
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-50">
-                                    <h3>Payment</h3>
-                                    <label htmlFor="fname">Accepted Cards</label>
-                                    <div className="icon-container-cart">
-                                        <i className="fa fa-cc-visa" style={{ color: 'navy' }} />
-                                        <i className="fa fa-cc-amex" style={{ color: 'blue' }} />
-                                        <i className="fa fa-cc-mastercard" style={{ color: 'red' }} />
-                                        <i className="fa fa-cc-discover" style={{ color: 'orange' }} />
-                                    </div>
-                                    <label htmlFor="cname">Name on Card</label>
-                                    <input type="text" id="cname" name="cardname" placeholder="John More Doe" />
-                                    <label htmlFor="ccnum">Credit card number</label>
-                                    <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" />
-                                    <label htmlFor="expmonth">Exp Month</label>
-                                    <input type="text" id="expmonth" name="expmonth" placeholder="September" />
-                                    <div className="row-cart">
-                                        <div className="col-50">
-                                            <label htmlFor="expyear">Exp Year</label>
-                                            <input type="text" id="expyear" name="expyear" placeholder={2018} />
-                                        </div>
-                                        <div className="col-50">
-                                            <label htmlFor="cvv">CVV</label>
-                                            <input type="text" id="cvv" name="cvv" placeholder={352} />
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
-                            <label>
-                                <input type="checkbox" defaultChecked="checked" name="sameadr" /> Shipping address same as billing
-        </label>
                             <input type="submit" defaultValue="Continue to checkout" className="btn" style={{ border: 'solid 1px' }} />
                         </form>
                     </div>
