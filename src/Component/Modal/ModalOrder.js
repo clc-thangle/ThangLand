@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Modal from 'react-modal';
 import './Modal.css'
 import { connect } from 'react-redux';
-
+var _ = require('lodash');
 class ModalOrder extends Component {
     constructor() {
         super();
@@ -24,7 +24,6 @@ class ModalOrder extends Component {
         this.handleCloseModal = this.handleCloseModal.bind(this);
     }
     componentDidMount() {
-
         this.setState({
             product: this.props.addItem,
             image: this.props.addItem.photos[0].value,
@@ -141,24 +140,23 @@ class ModalOrder extends Component {
     }
 
     addToCart() {
-        let data = this.state;
-        data.total = this.total()
-
-
-        const arr = JSON.parse(localStorage.getItem('data')) || [];
-        var datas = [...arr, data];
-        localStorage.setItem('data', JSON.stringify(datas));
-
-
-
+        let data = {
+            proCart:{product: this.state.product,
+            size:this.state.size,
+            toppingList: this.state.toppingList},
+            quantity: this.state.count,
+            total: this.total()
+        };
+        this.props.addToCart(data);
+        this.handleCloseModal();
+        // const arr = JSON.parse(localStorage.getItem('data')) || [];
+        // var datas = [...arr, data];
+        // localStorage.setItem('data', JSON.stringify(datas));
     }
 
-
     render() {
-
-        console.log(this.state);
+        // console.log(this.state);
         const { product, image, text, arrayOption } = this.state;
-
         const item = arrayOption.map((value, key) => {
             if (value.name == "Chọn Size") {
                 return (
@@ -296,7 +294,8 @@ class ModalOrder extends Component {
 }
 const mapStateToProps = (state, ownProps) => {
     return {
-        addItem: state.addItem
+        addItem: state.addItem,
+        editItem: state.editItem
     }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {

@@ -25,7 +25,6 @@ class Shop extends Component {
     handleOpenModal(val) {
         this.setState({ showModal: true, product: val });
         this.props.addObject(val)
-
     }
 
     handleCloseModal() {

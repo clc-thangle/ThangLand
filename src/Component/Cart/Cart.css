@@ -11,7 +11,6 @@
     -ms-flex: 25%; /* IE10 */
     width: 17%;
     padding: 0;
-    position: fixed;
     /* text-align: right; */
     right: 12%;
   }
@@ -120,6 +119,74 @@
   hr {
     border: 1px solid lightgrey;
   }
+
+  .cart-detail li:first-child {
+    border-top: none;
+}
+
+.cart-detail li {
+  list-style: none;
+  overflow: hidden;
+  border-top: .1px solid #ccc;
+}
+
+.div-product-details-right {
+  overflow: hidden;
+  position: relative;
+}
+.div-product-details-right {
+  margin: 10px 0;
+}
+
+.div-product-details-right-count, .div-product-details-right-remove {
+  display: inline-block;
+  width: 20px;
+  text-align: center;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+}
+
+.div-product-details-right-count {
+  background-color: #b22830;
+  color: #fff;
+  padding-bottom: 10px;
+  left: 0;
+  margin-left: 6%;
+}
+
+.cart-item {
+  list-style: none;
+}
+
+.quantity {
+  display: inline-block;
+  float: right;
+  margin-right: 7%;
+}
+
+.message {
+  text-align: center;
+}
+
+.name-size-right-container {
+  margin-left: 30px;
+}
+
+.name-size-right {
+  display: inline-block;
+  margin-left: 7%;
+
+}
+
+.name-size-right .this-is-name {
+  text-transform: capitalize;
+  color: #b22830;
+  text-decoration: none;
+  font-weight: 700;
+  font-style: unset;
+  padding-top: 0;
+}
   
   span.price {
     float: right;

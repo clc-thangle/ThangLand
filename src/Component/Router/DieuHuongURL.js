@@ -38,7 +38,7 @@ class DieuHuongURL extends Component {
                     <Route exact path="/product" component={Product} />
                     <Route exact path="/category" component={Category} />
                     <Route exact path="/product-details" component={ProductDetails} />
-                    <Route exact path="/cart" component={Cart} />
+                    <Route exact path="/cart" render={() => <Cart cart={this.props.cart}/>} />
                     <Route exact path="/responsibility" component={Responsibility} />
                     <Route exact path="/about" component={AboutUs} />
                     <Route exact path="/news" component={News} />
