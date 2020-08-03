@@ -26,12 +26,12 @@ class Header extends Component {
             <div className="language">
               <ul>
                 <li>
-                  <a href="https://www.highlandscoffee.com.vn/vn/trang-chu.html">
+                  <a href="#">
                     <img src="https://www.highlandscoffee.com.vn/vnt_upload/lang/flag-vn.jpg" width="36.95px" height="28px" />
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.highlandscoffee.com.vn/en/main.html">
+                  <a href="#">
                     <img src="https://www.highlandscoffee.com.vn/vnt_upload/lang/flag-en.jpg" width="36.95px" height="28px" style={{ marginLeft: '5px' }} />
                   </a>
                 </li>

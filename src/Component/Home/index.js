@@ -13,17 +13,17 @@ class Home extends Component {
                             <li data-target="#myCarousel" data-slide-to={2} style={{ marginRight: '10px' }} />
                         </ol>
                         <div className="carousel-inner">
-                            <a href="#" className="item active"><img src="https://www.highlandscoffee.com.vn/vnt_upload/weblink/HCO-7605-FESTIVE-2020-WEB-FB-2000X639.jpg" style={{ width: '100%' }} /></a>
-                            <a href="#" className="item"><img src="https://www.highlandscoffee.com.vn/vnt_upload/weblink/HL20_2000x639.jpg" style={{ width: '100%' }} /></a>
-                            <a href="#" className="item"><img src="https://www.highlandscoffee.com.vn/vnt_upload/weblink/VIET.Brand_Campaign_WEBBANNER.jpg" style={{ width: '100%' }} /></a>
+                            <Link to='/shop' href="#" className="item active"><img src="https://www.highlandscoffee.com.vn/vnt_upload/weblink/banner-01.png" style={{ width: '100%' }} /></Link>
+                            <Link to='/shop' className="item"><img src="https://www.highlandscoffee.com.vn/vnt_upload/weblink/HL20_2000x639.jpg" style={{ width: '100%' }} /></Link>
+                            <Link to='/shop' className="item"><img src="https://www.highlandscoffee.com.vn/vnt_upload/weblink/VIET.Brand_Campaign_WEBBANNER.jpg" style={{ width: '100%' }} /></Link>
                         </div>
                     </div>
                     <div className="image1-tend">
-                        <Link to='/shop' className="khampha">KHÁM PHÁ THÊM</Link>
+                        <Link to='/shop' className="khampha-tend">KHÁM PHÁ THÊM</Link>
                         <img src="https://www.highlandscoffee.com.vn/vnt_upload/weblink/HCO-7548-PHIN-SUA-DA-2019-TALENT-WEB_1.jpg" width="100%" />
                     </div>
                     <div className="image2-tend">
-                        <Link to='/shop' className="khampha2">KHÁM PHÁ THÊM</Link>
+                        <Link to='/shop' className="khampha2-tend">KHÁM PHÁ THÊM</Link>
                         <img src="https://www.highlandscoffee.com.vn/vnt_upload/weblink/Product_banner_confirmed.jpg" width="100%" />
                     </div>
                     <div className="image3-tend">

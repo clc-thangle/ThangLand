@@ -23,7 +23,7 @@ class Login extends Component {
     }
 
     render() {
-        console.log(this.state);
+        // console.log(this.state);
         return (
             this.props.isLogin ? <Redirect to="/shop" /> : <div>
                 <h2>Welcome to Highland Coffee</h2>

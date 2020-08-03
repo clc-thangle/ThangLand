@@ -29,9 +29,7 @@ class Register extends Component {
     addUser = e => {
         e.preventDefault();
         const db = firebase.firestore();
-        db.settings ({
-            timestampsInSnapshots: true
-        });
+        db.settings({ timestampsInSnapshots: true });
         const userRef = db.collection("user").add({
             email : this.state.email,
             psw : this.state.psw,

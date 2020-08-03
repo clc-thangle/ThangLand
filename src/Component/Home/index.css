@@ -53,14 +53,14 @@
   }
   
   .khampha3-tend:hover {
-    color: black;
+    color: white;
     background-color: rgb(177, 42, 45);
     animation-delay: 0.5s;
     transition: all 0.3s linear;
   }
   
   .khampha2-tend:hover {
-    color: black;
+    color: white;
     background-color: rgb(72, 98, 50);
     animation-delay: 0.5s;
     transition: all 0.3s linear;

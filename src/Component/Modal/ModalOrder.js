@@ -37,7 +37,7 @@ class ModalOrder extends Component {
                 if (value2.price.value == 0 && value1.name == "Chọn Size") {
                     this.setState({
                         size: value2,
-                        priceForSize : value2.price.value
+                        priceForSize: value2.price.value
                     });
                 }
                 else if (value2.is_default == true && value1.name == 'Chọn Đá/Nóng - Iced/Hot') {
@@ -45,7 +45,6 @@ class ModalOrder extends Component {
                         isIced: true
                     });
                 }
-
             })
         })
     }
@@ -86,27 +85,27 @@ class ModalOrder extends Component {
     isChangeTopping = (event, values) => {
         var list1 = this.state.toppingText ? this.state.toppingText : [];
         // console.log(event.target.checked );
-        if(event.target.checked == true) {
+        if (event.target.checked == true) {
             list1.push(event.target.value);
         }
         else {
             var index = list1.indexOf(event.target.value);
             if (index !== -1) {
-                list1.splice(index,1);
+                list1.splice(index, 1);
             }
         }
 
         var list = this.state.toppingOption ? this.state.toppingOption : [];
         var price = this.state.priceForTopping ? this.state.priceForTopping : 0;
 
-        if(event.target.checked == true) {
+        if (event.target.checked == true) {
             list.push(values);
             price += parseInt(values.price.value)
         }
         else {
             for (var i = 0; i < list.length; i++) {
-                if (list[i].id === values.id) { 
-                    list.splice(i, 1); 
+                if (list[i].id === values.id) {
+                    list.splice(i, 1);
                     price -= parseInt(values.price.value)
                 }
             }
@@ -133,7 +132,7 @@ class ModalOrder extends Component {
 
     isSize() {
 
-        if(this.state.size) {
+        if (this.state.size) {
             return <div className="topping-dish-desc">{this.state.size.name}</div>
         }
         else return null;
@@ -141,17 +140,16 @@ class ModalOrder extends Component {
 
     addToCart() {
         let data = {
-            proCart:{product: this.state.product,
-            size:this.state.size,
-            toppingList: this.state.toppingList},
+            proCart: {
+                product: this.state.product,
+                size: this.state.size,
+                toppingList: this.state.toppingList
+            },
             quantity: this.state.count,
             total: this.total()
         };
         this.props.addToCart(data);
         this.handleCloseModal();
-        // const arr = JSON.parse(localStorage.getItem('data')) || [];
-        // var datas = [...arr, data];
-        // localStorage.setItem('data', JSON.stringify(datas));
     }
 
     render() {
@@ -202,7 +200,7 @@ class ModalOrder extends Component {
                                                 <div className="row">
                                                     <div className="col">
                                                         <div className="custom-checkbox">
-                                                            <input value={val.name} onChange={(event) => this.isChangeTopping(event,val)} id={val.id} name={value.name} type="checkbox" />
+                                                            <input value={val.name} onChange={(event) => this.isChangeTopping(event, val)} id={val.id} name={value.name} type="checkbox" />
                                                             <label htmlFor={val.id}>{val.name}<span className="topping-item-price">(+{val.price.value}đ)</span>
                                                             </label>
                                                         </div>
@@ -278,11 +276,11 @@ class ModalOrder extends Component {
                     <div className="col colModal">
                         <div className="topping-add-sub">
                             <button onClick={() => this.minus(this.state.count)} className="btn-sub">-</button>
-                            <input className="inputModal" type="text" disabled defaultValue={1} value={this.state.count}/>
+                            <input className="inputModal" type="text" disabled defaultValue={1} value={this.state.count} />
                             <button onClick={() => this.plus(this.state.count)} className="btn-adding">+</button>
                         </div>
                     </div>
-                    <div className="col-auto"  onClick={() => this.addToCart()}>
+                    <div className="col-auto" onClick={() => this.addToCart()}>
                         <button type="button" className="btn btn-red">Thêm vào giỏ <span>{this.changPrice(this.total()) ? this.changPrice(this.total()) : this.changPrice(this.state.total)}</span> </button>
                     </div>
                 </div>
