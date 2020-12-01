@@ -88,7 +88,7 @@ class App extends Component {
     db.settings({
       timestampsInSnapshots: true
     });
-    var billRef = db.collection("user/" + this.state.isUser.key +"/bill/").add({
+    var billRef = db.collection("user/" + this.state.isUser.key +"/bill").add({
         products: this.state.cart,
         inforBill: orderInfor
     })

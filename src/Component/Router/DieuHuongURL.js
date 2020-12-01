@@ -18,7 +18,7 @@ import Product from '../Product/Product'
 import NoAuthority from '../NoAuthority/NoAuthority';
 import ShowProduct from '../../Admin/ShowProduct';
 import ShowUser from '../../Admin/ShowUser';
-
+import MapBranch from '../Map/MapBranch'
 const PrivateRoute = ({ render: Component, ...rest }) => (
     <Route {...rest} render={(props) => (
         localStorage.getItem('user') != null
@@ -46,6 +46,7 @@ class DieuHuongURL extends Component {
                     <Route exact path="/shop" render={()=><Shop isLogin={this.props.isLogin} addToCart={this.props.addToCart} cart={this.props.cart}/>} />
                     <Route exact path="/login" render={() => <Login login={this.props.userLogin} isLogin={this.props.isLogin} />} />
                     <Route exact path="/register" component={Register} />
+                    <Route exact path="/map" component={MapBranch}/>
                     <PrivateRoute exact path="/admin" render={Admin} />
                     <Route path="/no_authority" component={NoAuthority} />
                     <Route path="/admin/showProduct" render={() => <Admin><ShowProduct/></Admin>}/>

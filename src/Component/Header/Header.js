@@ -15,7 +15,7 @@ class Header extends Component {
     return (
       <div className="ncf-header">
         <div className="logo">
-          <img style={{ marginTop: '16px' }} src="https://www.highlandscoffee.com.vn/vnt_upload/weblink/logo.svg" />
+          <Link to="/"><img style={{ marginTop: '16px' }} src="https://www.highlandscoffee.com.vn/vnt_upload/weblink/logo.svg" /></Link>
         </div>
         <div className="headerTool">
           <div className="rowTool">
@@ -47,7 +47,7 @@ class Header extends Component {
           </button>
           <ul>
             <li className="menuList">
-              <Link className="quanCf" to="/">QUÁN CÀ PHÊ</Link>
+              <Link className="quanCf" to="/map">QUÁN CÀ PHÊ</Link>
             </li>
             <li className="menuList header-drop">
               <Link className="thucdon" to="/menu">THỰC ĐƠN</Link>
