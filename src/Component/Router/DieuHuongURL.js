@@ -18,6 +18,7 @@ import Product from '../Product/Product'
 import NoAuthority from '../NoAuthority/NoAuthority';
 import ShowProduct from '../../Admin/ShowProduct';
 import ShowUser from '../../Admin/ShowUser';
+import ShowAddress from '../../Admin/ShowAddress';
 import MapBranch from '../Map/MapBranch'
 const PrivateRoute = ({ render: Component, ...rest }) => (
     <Route {...rest} render={(props) => (
@@ -49,8 +50,9 @@ class DieuHuongURL extends Component {
                     <Route exact path="/map" component={MapBranch}/>
                     <PrivateRoute exact path="/admin" render={Admin} />
                     <Route path="/no_authority" component={NoAuthority} />
-                    <Route path="/admin/showProduct" render={() => <Admin><ShowProduct/></Admin>}/>
-                    <Route path="/admin/showUser" render={() => <Admin><ShowUser/></Admin>}/>
+                    <PrivateRoute path="/admin/showProduct" render={() => <Admin><ShowProduct/></Admin>}/>
+                    <PrivateRoute path="/admin/showUser" render={() => <Admin><ShowUser/></Admin>}/>
+                    <PrivateRoute path="/admin/showAddress" render={() => <Admin><ShowAddress/></Admin>}/>
                 </Switch>
             </div>
         );

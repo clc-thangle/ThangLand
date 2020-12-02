@@ -106,7 +106,7 @@ class App extends Component {
         <div className="App">
           <Header isLogin={this.state.isLogin} logOut={this.logOut} isUser={this.state.isUser} />
           <DieuHuongURL order={this.order} isUser={this.state.isUser} userLogin={(em, pw) => this.userLogin(em, pw)} isLogin={this.state.isLogin} addToCart={this.addToCart} cart={this.state.cart} />
-          <Footer />
+          <Footer />  
         </div>
       </Router>
     );
