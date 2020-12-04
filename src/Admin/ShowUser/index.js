@@ -1,6 +1,73 @@
 import React, { Component } from 'react';
 import {db} from './../../firebaseConnect';
+import { Table, Button, Popconfirm } from 'antd';
+import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import 'antd/dist/antd.css';
 import './index.css'
+
+const columns = [
+    {
+        title: 'Id',
+        dataIndex: 'id',
+        sorter: (a, b) => a.id - b.id,
+        sortDirections: ['ascend'],
+    },
+    // {
+    //     title: 'Ảnh',
+    //     dataIndex: 'linkAvt',
+    // },
+    {
+        title: 'Tên',
+        dataIndex: 'name',
+        sorter: (a, b) => a.title.length - b.title.length,
+        sortDirections: ['ascend'],
+    },
+    {
+        title: 'Email',
+        dataIndex: 'email',
+    },
+    {
+        title: 'Mật khẩu',
+        dataIndex: 'psw',
+    },
+    {
+        title: 'Số điện thoại',
+        dataIndex: 'phone',
+    },
+    {
+        title: 'Địa chỉ',
+        dataIndex: 'address',
+    },
+    {
+        title: 'Quyền',
+        dataIndex: 'role',
+    },
+    {
+        title: 'Action',
+        dataIndex: 'id',
+        // render: () => <><DeleteOutlined /><EditOutlined /></>,
+        align: 'center',
+        render: () => {
+          return (
+            <div>
+              <Button
+                icon={<EditOutlined />}
+                // onClick={() => this.goToEdit(row)}
+              />
+              <Popconfirm
+                title="Are you sure？"
+                okText="Yes"
+                cancelText="No"
+                // onConfirm={() => onDelete(row._id)}
+              >
+                <Button icon={<DeleteOutlined />} />
+              </Popconfirm>
+            </div>
+          );
+        }
+    }
+];
+
 class ShowUser extends Component {
     constructor(props) {
         super(props);
@@ -22,43 +89,11 @@ class ShowUser extends Component {
             });
     }
 
-    showUser = () => {
-        let show = this.state.user.map((value, key) =>
-            <tr>
-                <td>{key}</td>
-                <td><img src={value.linkAvt}></img></td>
-                <td>{value.name}</td>
-                <td>{value.email}</td>
-                <td>{value.psw}</td>
-                <td>{value.phone}</td>
-                <td>{value.address}</td>
-                <td>{value.role}</td>
-                <td><button>xóa</button></td>
-            </tr>
-        )
-        return show;
-    }
-
     render() {
         console.log(this.state.user);
         return (
-            <div className="showUserAdmin">
-                <table>
-                    <thead>
-                        <th>Id</th>
-                        <th>Ảnh</th>
-                        <th>Tên người dùng</th>
-                        <th>Email</th>
-                        <th>Mật khẩu</th>
-                        <th>Số điện thoại</th>
-                        <th>Địa chỉ</th>
-                        <th>Quyền</th>
-                        <th>Thao tác</th>
-                    </thead>
-                    <tbody>
-                        {this.showUser()}
-                    </tbody>
-                </table>
+            <div>
+                <Table columns={columns} dataSource={this.state.user} />
             </div>
         );
     }

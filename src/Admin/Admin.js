@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Row, Col } from 'antd';
 import { Layout, Menu } from 'antd';
 import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
-
+import './index.css'
 const { Header, Content, Footer, Sider } = Layout;
 class Admin extends Component {
     render() {
@@ -19,7 +19,7 @@ class Admin extends Component {
                         onCollapse={(collapsed, type) => {
                             console.log(collapsed, type);
                         }}>
-                        <Menu theme="dark" mode="inline" defaultSelectedKeys={['3']}>
+                        <Menu theme="dark" mode="inline">
                             <Menu.Item key="1" icon={<UserOutlined />}>
                                 <Link to="/admin/showUser">Show User</Link>
                             </Menu.Item>
