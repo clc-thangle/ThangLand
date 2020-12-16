@@ -19,7 +19,7 @@ const columns = [
     {
         title: 'Tên',
         dataIndex: 'name',
-        sorter: (a, b) => a.title.length - b.title.length,
+        sorter: (a, b) => a.name.length - b.name.length,
         sortDirections: ['ascend'],
     },
     {
@@ -45,7 +45,6 @@ const columns = [
     {
         title: 'Action',
         dataIndex: 'id',
-        // render: () => <><DeleteOutlined /><EditOutlined /></>,
         align: 'center',
         render: () => {
           return (

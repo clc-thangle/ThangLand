@@ -116,8 +116,6 @@ class Shop extends Component {
                         </div>
                     </Modal>
                 </div>
-
-
             </div>
         );
     }
