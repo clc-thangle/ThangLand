@@ -47,7 +47,7 @@ class Header extends Component {
           </button>
           <ul>
             <li className="menuList">
-              <Link className="quanCf" to="/map">CÁC CHI NHÁNH</Link>
+              <Link className="quanCf" to="/map">CHI NHÁNH</Link>
             </li>
             <li className="menuList header-drop">
               <Link className="thucdon" to="/menu">THỰC ĐƠN</Link>

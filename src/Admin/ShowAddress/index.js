@@ -11,19 +11,24 @@ class ShowAddress extends Component {
             user: [],
             selectedRowKeys: [], // Check here to configure the default column
             isModalVisible: false,
-            title: '',
+            name: '',
             address: '',
             lat: '',
             lon: '',
+            userEdit: {},
+            userEditKey: '',
         }
-        this.showModal = this.showModal.bind(this);
+        this.showModalUpdate = this.showModalUpdate.bind(this);
+        this.showModalAdd = this.showModalAdd.bind(this);
         this.addGeo = this.addGeo.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
     }
 
     updateInput = e => {
+        let user = this.state.userEdit;
+        user[e.target.name] = e.target.value;
         this.setState({
-            [e.target.name]: e.target.value
+            userEdit: user,
         });
     }
 
@@ -85,13 +90,38 @@ class ShowAddress extends Component {
         });
     }
 
-    // updateGeo = () => {
-    //     const db = firebase.firestore()
-    //     db.collection("geo").doc(key).set({...})
-    // }
+    updateTutorial = () => {
+        const data = {
+            title: this.state.userEdit.title,
+            address: this.state.userEdit.address,
+            lat: parseFloat(this.state.userEdit.lat),
+            lon: parseFloat(this.state.userEdit.lon),
+        };
+        console.log(data);
+        const db = firebase.firestore()
+        db.collection("geo/").doc(this.state.userEditKey).update(data)
+            .then(() => {
+                alert('cap nhap thanh cong')
+            })
+            .catch((e) => {
+                console.log(e);
+            });
 
-    showModal() {
+        this.setState({ isModalVisible: false })
+    }
+
+    showModalAdd() {
         this.setState({ isModalVisible: true })
+    }
+
+    showModalUpdate(key) {
+        db.collection("geo").doc(key).get()
+            .then((querySnapshot) => {
+                this.setState({
+                    userEdit: querySnapshot.data()
+                })
+            });
+        this.setState({ isModalVisible: true, userEditKey: key });
     }
 
     handleCancel() {
@@ -117,7 +147,7 @@ class ShowAddress extends Component {
             {
                 title: 'Name',
                 dataIndex: 'title',
-                sorter: (a, b) => a.title.length - b.title.length,
+                sorter: (a, b) => a.name.length - b.name.length,
                 sortDirections: ['ascend'],
                 width: 200
             },
@@ -139,26 +169,24 @@ class ShowAddress extends Component {
                 title: 'Action',
                 dataIndex: 'id',
                 key: 'id',
-
-                // render: () => <><DeleteOutlined /><EditOutlined /></>,
                 align: 'center',
                 render: (key) => {
                     return (
                         <div style={{ display: "inline-flex" }}>
-                            <Button onClick={this.showModal} style={{ marginRight: "5px" }} icon={<FolderAddOutlined />} />
+                            {/* button adđ */}
+                            <Button onClick={this.showModalAdd} style={{ marginRight: "5px" }} icon={<FolderAddOutlined />} />
+                            {/* button update */}
                             <Button
                                 style={{ marginRight: "5px" }}
                                 icon={<EditOutlined />}
-                            // onClick={() => this.goToEdit(row)}
-                            //s
-
+                                onClick={() => this.showModalUpdate(key)}
                             />
+                            {/* button delete */}
                             <Popconfirm
                                 title="Are you sure？"
                                 okText="Yes"
                                 cancelText="No"
-                                onConfirm={() => this.deleteGeo(key)} // truyền bt ko dc à bth truyền kiểu gì giờ làm h lấy key của phàn tử nứ truyền v4 lm ren 
-
+                                onClick={() => this.deleteGeo(key)}
                             >
                                 <Button style={{ marginRight: "5px" }} icon={<DeleteOutlined />} />
                             </Popconfirm>
@@ -181,10 +209,10 @@ class ShowAddress extends Component {
                     onOk={this.addGeo}
                     onCancel={this.handleCancel}
                 >
-                    <span>Name</span><Input value={this.state.name} onChange={this.updateInput} type="text" placeholder="Name Branch" name="title" required ></Input>
-                    <span>Address</span><Input value={this.state.address} onChange={this.updateInput} type="text" placeholder="Address" name="address" required ></Input>
-                    <span>Lat</span><Input value={this.state.lat} onChange={this.updateInput} type="text" placeholder="Lat" name="lat" required ></Input>
-                    <span>Long</span><Input value={this.state.lon} onChange={this.updateInput} type="text" placeholder="Lon" name="lon" required ></Input>
+                    <span>Name</span><Input value={this.state.userEdit.title} onChange={this.updateInput} type="text" placeholder="Name Branch" name="title" required ></Input>
+                    <span>Address</span><Input value={this.state.userEdit.address} onChange={this.updateInput} type="text" placeholder="Address" name="address" required ></Input>
+                    <span>Lat</span><Input value={this.state.userEdit.lat} onChange={this.updateInput} type="text" placeholder="Lat" name="lat" required ></Input>
+                    <span>Long</span><Input value={this.state.userEdit.lon} onChange={this.updateInput} type="text" placeholder="Lon" name="lon" required ></Input>
                 </Modal>
             </div>
         );
