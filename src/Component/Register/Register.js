@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as firebase from 'firebase';
 import './Register.css';
+import { Redirect } from 'react-router';
 class Register extends Component {
 
     isChange = (event) => {
@@ -47,7 +48,7 @@ class Register extends Component {
             phone: '',
             linkAvt: ''
         })
-        alert('Sign Up Success')
+        alert('Sign Up Success');
     }
 
     render() {

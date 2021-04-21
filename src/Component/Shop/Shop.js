@@ -35,6 +35,7 @@ class Shop extends Component {
         var list = [];
         db.collection("data").get()
             .then((querySnapshot) => {
+                console.log(querySnapshot);
                 querySnapshot.forEach((doc) => {
                     let cate = doc.data();
                     cate.dishes = [];
@@ -83,23 +84,26 @@ class Shop extends Component {
     // }
 
     render() {
-        
+
         return (
             <div className="contentShop">
                 <div className="row1 cate">
                     {
                         this.state.arrayCategory.map((value, key) =>
                             <CateItem
-                                key={key} id={key}
+                                // key={value.slug}
+                                id={value.slug}
                                 name={value.dish_type_name}
-                                slug={value.slug}
+                            // slug={value.slug}
                             />
                         )}
                 </div>
                 <div className="row1 pro">
                     {
                         this.state.arrayCategory.map((value, key) =>
-                            <div key={key} id={key}>
+                            <div
+                                // key={key} 
+                                id={value.slug}>
                                 {
                                     this.showProCate(value)
                                 }
@@ -112,7 +116,7 @@ class Shop extends Component {
                             <button className="modal-container-button" onClick={this.handleCloseModal}>
                                 <i className="fa fa-times" aria-hidden="true"></i>
                             </button>
-                            <ModalOrder product={this.state.product} addToCart={this.props.addToCart} cart={this.props.cart}/>
+                            <ModalOrder product={this.state.product} addToCart={this.props.addToCart} cart={this.props.cart} />
                         </div>
                     </Modal>
                 </div>

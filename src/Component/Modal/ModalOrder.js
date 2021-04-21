@@ -23,6 +23,7 @@ class ModalOrder extends Component {
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
     }
+    
     componentDidMount() {
         this.setState({
             product: this.props.addItem,
@@ -142,8 +143,8 @@ class ModalOrder extends Component {
         let data = {
             proCart: {
                 product: this.state.product,
-                size: this.state.size,
-                toppingList: this.state.toppingList
+                size: this.state.size ? this.state.size : null,
+                toppingList: this.state.toppingList ? this.state.toppingList : null
             },
             quantity: this.state.count,
             total: this.total()
@@ -286,7 +287,6 @@ class ModalOrder extends Component {
                 </div>
                 </div>
             </div >
-
         );
     }
 }

@@ -9,7 +9,8 @@ class Cart extends Component {
                 name: this.props.isUser ? this.props.isUser.name : null,
                 email: this.props.isUser ? this.props.isUser.email : null,
                 address: this.props.isUser ? this.props.isUser.address : null,
-                phone: this.props.isUser ? this.props.isUser.phone : null
+                phone: this.props.isUser ? this.props.isUser.phone : null,
+                date: null
             }
         }
     }
@@ -42,7 +43,8 @@ class Cart extends Component {
             name: this.state.userInfor.name,
             email: this.state.userInfor.email,
             address: this.state.userInfor.address,
-            phone: this.state.userInfor.phone
+            phone: this.state.userInfor.phone,
+            date: new Date()
             // cart: this.props.cart
         }
         this.props.order(orderInfor);
@@ -94,7 +96,6 @@ class Cart extends Component {
                                                 {value.proCart.toppingList && value.proCart.toppingList.map((val, k) =>
                                                     <p>{val.name}</p>
                                                 )}
-                                                <p>Đá/Iced</p>
                                             </div>
                                             <div className="quantity">{this.changPrice(value.total)}</div>
                                         </div>

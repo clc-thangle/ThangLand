@@ -56,13 +56,11 @@ function Map() {
           }}
         >
           <div className="container-info">
-
             <img className="img-map" src="https://www.highlandscoffee.com.vn/vnt_upload/dealer/02_2018/Highlands-Coffee-anh1.jpg" style={{ display: 'inline-block', width: '46px' }} />
             <div className="title" style={{ display: 'inline-block', marginLeft: '10px' }}>
               <h2 className="h2map">{selectedPark.title}</h2>
               <p>{selectedPark.address}</p>
             </div>
-
           </div>
         </InfoWindow>
       )}

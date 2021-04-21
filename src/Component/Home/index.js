@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './index.css';
 class Home extends Component {
     render() {
@@ -96,6 +96,7 @@ class Home extends Component {
                     </div>
                 </nav>
             </div>
+            
         );
     }
 }

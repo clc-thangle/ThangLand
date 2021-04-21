@@ -4,6 +4,7 @@ import { db } from '../../firebaseConnect';
 import { Table, Button, Popconfirm, Modal, Input } from 'antd';
 import { DeleteOutlined, EditOutlined, FolderAddOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
+import SearchItem from '../SearchItem/SearchItem';
 class ShowAddress extends Component {
     constructor(props) {
         super(props);
@@ -17,6 +18,7 @@ class ShowAddress extends Component {
             lon: '',
             userEdit: {},
             userEditKey: '',
+            keyword: '',
         }
         this.showModalUpdate = this.showModalUpdate.bind(this);
         this.showModalAdd = this.showModalAdd.bind(this);
@@ -31,6 +33,12 @@ class ShowAddress extends Component {
             userEdit: user,
         });
     }
+
+    // updateInput = e => {
+    //     this.setState({
+    //         [e.target.name]: e.target.value
+    //     });
+    // }
 
     refreshList() {
         this.setState({
@@ -142,6 +150,13 @@ class ShowAddress extends Component {
             });
     }
 
+    onSearch = (keyword) => { 
+        this.setState({
+            keyword: keyword
+        })
+        console.log(keyword);
+    }
+
     render() {
         const columns = [
             {
@@ -201,8 +216,10 @@ class ShowAddress extends Component {
                     <span style={{ marginLeft: 8 }}>
 
                     </span>
-                </div>
+                    {/* <SearchItem onSearch={this.onSearch}/> */}
                 <Table columns={columns} dataSource={this.state.user} />
+                </div>
+                
                 <Modal
                     title="Add Branch"
                     visible={this.state.isModalVisible}

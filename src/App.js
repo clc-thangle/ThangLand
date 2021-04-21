@@ -4,6 +4,7 @@ import DieuHuongURL from './Component/Router/DieuHuongURL';
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { db } from './firebaseConnect';
+import Call from './Component/Call/Call'
 import * as firebase from 'firebase';
 class App extends Component {
 
@@ -18,6 +19,10 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.getUser();
+  }
+
+  getUser = () => {
     let user = [];
     db.collection("user").get()
       .then((querySnapshot) => {
@@ -33,21 +38,29 @@ class App extends Component {
 
   userLogin = (em, pw) => {
     var a = 0;
-    this.state.user.map((value, key) => {
-      // console.log('email:' + value.email + '-' + this.state.email);
-      if (value.email === em && value.psw === pw) {
-        localStorage.setItem('user', JSON.stringify(value));
-        a++;
+    let user = [];
+    db.collection("user").get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc, key) => {
+          // console.log(doc);
+          user.push({ ...doc.data(), key: doc.id });
+          if (doc.data().email === em && doc.data().psw === pw) {
+            localStorage.setItem('user', JSON.stringify({ ...doc.data(), key: doc.id }));
+            a++;
+            this.setState({
+              isLogin: true,
+              isUser: { ...doc.data(), key: doc.id }
+            })
+          }
+          else {
+            if (key + 1 == this.state.user.length && a == 0)
+              alert('đăng nhập không thành công');
+          }
+        });
         this.setState({
-          isLogin: true,
-          isUser: value
+          user: user
         })
-      }
-      else {
-        if (key + 1 == this.state.user.length && a == 0)
-          alert('đăng nhập không thành công');
-      }
-    })
+      });
   }
 
   logOut = () => {
@@ -62,10 +75,11 @@ class App extends Component {
 
   addToCart = (data) => {
     let cart = this.state.cart;
+    console.log(cart);
     if (cart.length != 0) {
       cart.map((val, key) => {
-        console.log(JSON.stringify(data.proCart) );
-        console.log(JSON.stringify(val.proCart));
+        // console.log(JSON.stringify(data.proCart));
+        // console.log(JSON.stringify(val.proCart));
         if (JSON.stringify(data.proCart) == JSON.stringify(val.proCart)) {
           cart[key].quantity += data.quantity;
           cart[key].total += data.total;
@@ -83,14 +97,19 @@ class App extends Component {
   }
 
   order = (orderInfor) => {
-    // e.preventDefault();
+    console.log(this.state.isUser);
+    console.log({
+      products: this.state.cart,
+      inforBill: orderInfor
+    });
+
     const db = firebase.firestore();
     db.settings({
       timestampsInSnapshots: true
     });
-    var billRef = db.collection("user/" + this.state.isUser.key +"/bill/").add({
-        products: this.state.cart,
-        inforBill: orderInfor
+    var billRef = db.collection("user/" + this.state.isUser.key + "/bill").add({
+      products: this.state.cart,
+      inforBill: orderInfor
     })
     localStorage.removeItem('data');
     this.setState({
@@ -105,8 +124,9 @@ class App extends Component {
       <Router>
         <div className="App">
           <Header isLogin={this.state.isLogin} logOut={this.logOut} isUser={this.state.isUser} />
-          <DieuHuongURL order={this.order} isUser={this.state.isUser} userLogin={(em, pw) => this.userLogin(em, pw)} isLogin={this.state.isLogin} addToCart={this.addToCart} cart={this.state.cart} />
-          <Footer />  
+          <DieuHuongURL order={this.order} getUser={this.getUser} isUser={this.state.isUser} userLogin={(em, pw) => this.userLogin(em, pw)} isLogin={this.state.isLogin} addToCart={this.addToCart} cart={this.state.cart} />
+          <Call />
+          <Footer />
         </div>
       </Router>
     );
@@ -114,4 +134,3 @@ class App extends Component {
 }
 
 export default App;
-
